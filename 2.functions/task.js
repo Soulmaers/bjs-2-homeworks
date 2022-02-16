@@ -40,7 +40,7 @@ function makeWork(arrOfArr, func) {
       max = sum;
     }
   }
-
+  
   return max;
 }
 
