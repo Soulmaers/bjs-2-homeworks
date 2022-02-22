@@ -1,5 +1,5 @@
 
-
+//Задача 1
 function parseCount(value) {
     let number = Number.parseInt(value);
     if (!isNaN(number)) {
@@ -20,7 +20,7 @@ function validateCount(value) {
 }
 
 
-
+//Задача 2
 
 class Triangle {
     constructor(a, b, c) {
