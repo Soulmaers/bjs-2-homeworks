@@ -48,17 +48,18 @@ class AlarmClock {
     }
 
     start() {
-        let checkClock = () =>
-            this.alarmCollection.forEach((el) => {
-                if (el.time === this.getCurrentFormattedTime()) {
-                    el.callback;
-                } if (this.timerId !== null) {
-                    this.timerId = setInterval(checkClock, 3000);
-                }
 
-            })
+        let checkClock = (call) => {
+            if (this.getCurrentFormattedTime === call.time) {
+                call.callback();
+            }
+        }
+        if (this.timerId === null) {
+            setInterval(this.alarmCollection.forEach((el) => checkClock(el)), 3000);
+        }
 
     }
+
 
     stop() {
         if (this.timerId !== null) {
@@ -69,13 +70,13 @@ class AlarmClock {
 
     printAlarms() {
         this.alarmCollection.forEach((el) => {
-            console.log(el.id + el.time);
+            console.log(`${el.id}. ${el.time}`);
 
         })
 
     }
     clearAlarms() {
-        this.stop,
+        this.stop(),
             this.alarmCollection = [];
 
     }
