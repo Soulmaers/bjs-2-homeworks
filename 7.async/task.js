@@ -35,14 +35,10 @@ class AlarmClock {
         let hours = now.getHours();
         if (now.getHours() < 10) {
             hours = "0" + hours;
-        } else {
-            hours;
         }
         let minutes = now.getMinutes();
         if (now.getMinutes() < 10) {
             minutes = "0" + minutes;
-        } else {
-            minutes
         }
         return (`${hours}:${minutes}`);
     }
@@ -50,7 +46,7 @@ class AlarmClock {
     start() {
 
         let checkClock = (call) => {
-            if (this.getCurrentFormattedTime === call.time) {
+            if (this.getCurrentFormattedTime() === call.time) {
                 call.callback();
             }
         }
@@ -64,7 +60,7 @@ class AlarmClock {
     stop() {
         if (this.timerId !== null) {
             clearInterval(this.timerId);
-            this.timerId === null;
+            this.timerId = null;
         }
     }
 
