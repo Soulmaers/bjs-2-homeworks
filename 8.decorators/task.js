@@ -31,7 +31,7 @@ function debounceDecoratorNew(func,ms) {
 
   function wrapper(...args){
     if (!flag) {
-      func.apply(this,...args);
+      func.apply(this, args);
       flag=true;
       return;
        
@@ -40,7 +40,7 @@ function debounceDecoratorNew(func,ms) {
     clearTimeout(timeout);
     timeout=setTimeout(()=>{
       flag=false;
-      func.apply(this,...args);
+      func.apply(this, args);
     }, ms);
       }
   return wrapper;
@@ -48,15 +48,15 @@ function debounceDecoratorNew(func,ms) {
 
 
 
-function debounceDecorator2(func) {
+function debounceDecorator2(func,ms) {
   let timeout;
   let flag=false;
-  
+  wrapper.count=0;
+
   function wrapper(...args){
-    wrapper.count=0;
-    wrapper.count++;
+      wrapper.count++;
     if (!flag) {
-      func.apply(this,...args);
+      func.apply(this, args);
       flag=true;
       return;
        
@@ -65,7 +65,7 @@ function debounceDecorator2(func) {
     clearTimeout(timeout);
     timeout=setTimeout(()=>{
       flag=false;
-      func.apply(this,...args);
+      func.apply(this, args);
     }, ms);
     
       }
